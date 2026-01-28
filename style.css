@@ -1,0 +1,243 @@
+/* --- Variables & Reset --- */
+:root {
+  --gold-primary: #d4af37;
+  --gold-gradient: linear-gradient(
+    135deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  );
+  --dark-cocoa: #1a120e;
+  --rich-black: #0f0f0f;
+  --glass-bg: rgba(30, 30, 30, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-cream: #f5f5dc;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--rich-black);
+  /* Luxurious dark vignette background */
+  background-image: radial-gradient(circle at center, #2c1e1a 0%, #000000 100%);
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+  text-align: center;
+  max-width: 550px;
+  width: 100%;
+  padding: 3rem;
+
+  /* The Glass Effect */
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Logo & Header --- */
+.logo-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.brand-logo {
+  max-width: 160px; /* Adjust based on your actual PNG size */
+  height: auto;
+  filter: drop-shadow(
+    0 0 10px rgba(212, 175, 55, 0.2)
+  ); /* Subtle gold glow behind logo */
+  border-radius: 10rem;
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400; /* Luxury fonts look better thinner */
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  background: var(--gold-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Metallic Text Effect */
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(245, 245, 220, 0.8);
+  margin-bottom: 2.5rem;
+}
+
+/* --- Divider Element --- */
+.launch-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  gap: 15px;
+  opacity: 0.7;
+}
+
+.line {
+  height: 1px;
+  width: 40px;
+  background-color: var(--gold-primary);
+}
+
+.status-text {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: var(--gold-primary);
+}
+
+/* --- Form --- */
+.invite-text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.input-group {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50px; /* Fully rounded pill shape */
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  padding-right: 130px; /* Make room for the button */
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.btn-gold {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  border: none;
+  border-radius: 50px;
+  padding: 0 25px;
+  background: var(--gold-gradient);
+  color: var(--dark-cocoa);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn-gold:hover {
+  transform: scale(1.05); /* Slight grow effect */
+  filter: brightness(1.1);
+}
+
+/* --- Feedback Message --- */
+.hidden {
+  display: none;
+}
+#message {
+  margin-top: 1rem;
+  color: #4caf50;
+  font-size: 0.9rem;
+  animation: fadeIn 0.8s ease;
+}
+
+/* --- Footer --- */
+.social-footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--gold-primary);
+  transform: translateY(-3px);
+}
+
+/* --- Animations --- */
+.fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 2rem 1.5rem;
+  }
+  .tagline {
+    font-size: 2rem;
+  }
+
+  input[type="email"] {
+    padding-right: 20px; /* Remove space for button */
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .btn-gold {
+    position: static;
+    width: 100%;
+    padding: 15px;
+  }
+}
